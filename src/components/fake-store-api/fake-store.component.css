@@ -1,0 +1,27 @@
+.card{
+    width: 200px;
+}
+
+.card-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    height: 4.5em; /* Approximately 3 lines of text */
+    line-height: 1.5em; /* Adjust based on your font size */
+}
+
+main{
+    height: 567px;
+    overflow: auto;
+}
+
+header {
+    width:100%; 
+}
+
+span.me-4:hover {
+    cursor: pointer;
+}

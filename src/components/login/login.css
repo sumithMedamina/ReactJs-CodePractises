@@ -1,0 +1,17 @@
+ .container-fluid{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 500px;
+      /* color: white; */
+}
+
+form{
+  padding: 20px;
+  border: 2px solid gray;
+}
+
+
+
+
+
