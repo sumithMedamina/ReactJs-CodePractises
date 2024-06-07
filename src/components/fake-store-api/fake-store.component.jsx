@@ -3,6 +3,8 @@ import "./fake-store.component.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap-icons/font/bootstrap-icons.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
+import $ from "jquery";
+import axios from "axios";
 
 export function ShopifyComponent() {
 
@@ -20,22 +22,47 @@ export function ShopifyComponent() {
     }
 
     function LoadProducts(url) {
-        fetch(url)
-            .then(response => response.json())
-            .then(data => {
-                setProducts(data);
-            })
-            .catch(error => console.log(error));
+        $.ajax({
+            method:"get",
+            url:url,
+            success: response => setProducts(response),
+            error:response => console.log(response.statusText)
+        })
+
+        // fetch(url)
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         setProducts(data);
+        //     })
+        //     .catch(error => console.log(error));
     }
 
     function LoadCategories() {
-        fetch("http://fakestoreapi.com/products/categories")
-            .then(response => response.json())
-            .then(data => {
-                data.unshift("all");
-                setCategories(data);
-            })
-            .catch(error => console.log(error));
+        axios.get("http://fakestoreapi.com/products/categories")
+        .then(response => {
+            response.unshift("all");
+            setCategories(response.data);
+        })
+        .catch(error => console.log(error));
+            //    $.ajax({
+            //     method:"get",
+            //     url:"http://fakestoreapi.com/products/categories",
+            //     success:( response =>{
+            //         response.unshift("all");
+            //         setCategories(response);
+            //     }),
+            //     error: (response =>{
+            //         console.log(response.statusText);
+            //     })
+            //    })
+
+        // fetch("http://fakestoreapi.com/products/categories")
+        //     .then(response => response.json())
+        //     .then(data => {
+        //         data.unshift("all");
+        //         setCategories(data);
+        //     })
+        //     .catch(error => console.log(error));
     }
 
     function handleCategoryChange(event) {
