@@ -40,10 +40,11 @@ export function ShopifyComponent() {
     function LoadCategories() {
         axios.get("http://fakestoreapi.com/products/categories")
         .then(response => {
-            response.unshift("all");
+            response.data.unshift("all");
             setCategories(response.data);
         })
         .catch(error => console.log(error));
+
             //    $.ajax({
             //     method:"get",
             //     url:"http://fakestoreapi.com/products/categories",
