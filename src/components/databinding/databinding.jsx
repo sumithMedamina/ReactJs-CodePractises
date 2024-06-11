@@ -1,3 +1,4 @@
+import { useState } from "react"
 
 export function DataBinding(){
     // let id = 1;
@@ -25,59 +26,98 @@ export function DataBinding(){
     //         </dl>
     //       </div>
     // )
-    var categories =["Electronics","Footwear","Fashion"];
+
+    // var categories =["Electronics","Footwear","Fashion"];
+    // return(
+    //     <div className="container-fluid">
+    //         <h2>Categories</h2>
+    //         <ul className="list-unstyled">
+    //             {
+    //                 categories.map((c)=>
+    //                 <li key={c}><a href="#a">{c}</a></li>
+    //                 )
+    //             }
+    //         </ul>
+    //         <div>
+    //            {
+    //                 categories.map(c => (
+    //                     <button key={c} className="btn btn-dark d-block mb-2 w-25"> {c} </button>
+    //                 ))
+    //             }
+    //            </div>
+    //         <ul className="list-list-unstyled">
+    //             {categories.map(c => (
+    //                 <li key={c}><input type="checkbox" />{c}</li>
+    //             ))}
+    //         </ul>
+    //         <ol>
+    //             {
+    //               categories.map((category)=>
+    //                     <li key={category}>{category}</li>
+    //                 )
+    //             }
+    //         </ol>
+    //         <select name="" id="">
+    //             {
+    //                 categories.map((category)=>
+    //                     <option key={category}>{category}</option>
+    //                 )
+    //             }
+    //         </select>
+    //         <table className="table table-hover">
+    //             <thead>
+    //                 <tr>
+    //                     <th>Categories</th>
+    //                 </tr>
+    //             </thead>
+    //             <tbody>
+    //                 {
+    //                     categories.map((category)=>
+    //                     <tr  key={category}>
+    //                         <td>{category}</td>
+    //                     </tr>
+    //                     )
+    //                 }
+    //             </tbody>
+    //         </table>
+    //     </div>
+    // )
+
+    const [userName]   =useState('Jhon');
+    const [categories] =useState(["Electronics","Men's Fashion","Jwellery"]);
+    const [products]   =useState([{Name:"TV",Price:42000.23},{Name:"Men's Fashion",Price:3200.44}]);
+
     return(
-        <div className="container-fluid">
+        <div className="conatainer-fluid">
+            <h2>State in react function component</h2>
+            <p>HI !{userName}</p>
             <h2>Categories</h2>
-            <ul className="list-unstyled">
-                {
-                    categories.map((c)=>
-                    <li key={c}><a href="#a">{c}</a></li>
-                    )
-                }
-            </ul>
-            <div>
-               {
-                    categories.map(c => (
-                        <button key={c} className="btn btn-dark d-block mb-2 w-25"> {c} </button>
-                    ))
-                }
-               </div>
-            <ul className="list-list-unstyled">
-                {categories.map(c => (
-                    <li key={c}><input type="checkbox" />{c}</li>
-                ))}
-            </ul>
             <ol>
                 {
-                  categories.map((category)=>
+                    categories.map(category => 
                         <li key={category}>{category}</li>
                     )
                 }
             </ol>
-            <select name="" id="">
-                {
-                    categories.map((category)=>
-                        <option key={category}>{category}</option>
-                    )
-                }
-            </select>
             <table className="table table-hover">
                 <thead>
                     <tr>
-                        <th>Categories</th>
+                        <th>Name</th>
+                        <th>Price</th>
                     </tr>
                 </thead>
                 <tbody>
                     {
-                        categories.map((category)=>
-                        <tr  key={category}>
-                            <td>{category}</td>
-                        </tr>
+                        products.map(product =>
+                            <tr key={product.Name}>
+                                    <td>{product.Name}</td>
+                                    <td>{product.Price}</td>
+                            </tr>
                         )
                     }
                 </tbody>
             </table>
         </div>
     )
+
 }
