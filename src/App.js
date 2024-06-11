@@ -1,14 +1,16 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.js';
-import { TwoWayBinding } from './components/databinding/twowaybinding';
+
+
+import { DarkMode } from './components/style-binding/darkmode';
 
 
 
 function App() {
   return (
-    <div className="App">
-      <TwoWayBinding/>
+    <div className="">
+      <DarkMode/>
     </div>
   );
 }

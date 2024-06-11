@@ -13,6 +13,7 @@ export function StyleBinding(){
                 boxShadow:'2px 2px 2px red'
             })
           }
+          
           else{
             setStyleObject({
                 border:'2px solid green',
