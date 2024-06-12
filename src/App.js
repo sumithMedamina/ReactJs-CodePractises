@@ -3,14 +3,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
 
-import { DarkMode } from './components/style-binding/darkmode';
+import { Sorting } from './components/class-binding/classdemo';
 
 
 
 function App() {
   return (
     <div className="">
-      <DarkMode/>
+      <Sorting/>
     </div>
   );
 }
