@@ -37,9 +37,12 @@ function verifyPassword(e){
     return(
         <div className="container-fluid">
             <h3>RegisterUser</h3>
-            <dl>
+            <dl >
                 <dt>User Name</dt>
-                <dd><input type="text" onKeyUp={verifyUser}/></dd>
+                <dd><input type="text" 
+                
+                
+                onKeyUp={verifyUser}/></dd>
                 <dd className={errorClass}>{userError}</dd>
                 <dt>Password</dt>
                 <dd><input type="password" onKeyPress={verifyPassword}/></dd>
