@@ -1,0 +1,51 @@
+
+<!-- <script>
+    var     userName = prompt("Enter Your UserName");
+    var         role = prompt("Enter your role","Admin|Customer|Manager");
+    var  productname = prompt("Enter new Product Name");
+
+    class Product {
+        _productName;
+
+        get ProductName(){
+            return this._productName;
+        }
+
+        set ProductName(newValue){
+            if(role=="Admin"){
+                this._productName=newValue;
+            }else{
+                document.write(`Hello ! ${userName} your don't have authorization to set product name...`);
+            }
+        }
+    }
+
+    let obj = new Product();
+    obj.ProductName= productname;
+    //if(obj.ProductName){
+        document.write(`productName = ${obj.ProductName}`)
+   // }
+</script> -->
+
+<script>
+    class Product {
+        Name ="Lg oled Tv";
+        Rating = {
+            vendorRating :{
+                rate : 3.5,
+                count :230
+            },
+            customerRating: {
+                rate :3.1,
+                count:2000
+            }
+        }
+
+        get CustomerRating(){
+          return   this.Rating.customerRating.rate;
+        }
+    }
+
+    let obj = new Product();
+    document.write(`CustomerRating = ${obj.CustomerRating}`)
+</script>
