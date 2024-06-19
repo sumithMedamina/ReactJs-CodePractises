@@ -1,4 +1,5 @@
 
+<!-- Accessing Class Properties using accessors -->
 <!-- <script>
     var     userName = prompt("Enter Your UserName");
     var         role = prompt("Enter your role","Admin|Customer|Manager");
@@ -27,7 +28,8 @@
    // }
 </script> -->
 
-<script>
+<!-- Accessing Class NESTED Properties using accessors -->
+<!-- <script>
     class Product {
         Name ="Lg oled Tv";
         Rating = {
@@ -48,4 +50,37 @@
 
     let obj = new Product();
     document.write(`CustomerRating = ${obj.CustomerRating}`)
-</script>
+</script> -->
+
+<!-- Re-initializing Class Properties using accessors -->
+ <script>
+    class Product{
+
+        Name= "SamsungTv";
+        Price= 46000.00;
+        qty=2;
+
+        Total(){
+            return this.Price*this.qty;
+        }
+ 
+        Print(){
+            document.write(`
+            Name = ${this.Name} <br>
+            Price = ${this.Price} <br>
+            Qty = ${this.qty} <br>
+            Total = ${this.Total()}
+            `)
+        }
+        
+    }
+
+    let obj = new Product();
+    obj.Name = prompt("Enter your name");
+    obj.Price = parseFloat(prompt("Enter PRICE"));
+    obj.qty = parseInt(prompt("Enter Quantity"));
+    obj.Print();
+ </script>
+
+
+
