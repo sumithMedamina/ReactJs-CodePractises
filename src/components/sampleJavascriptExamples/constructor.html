@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Constructor</title>
+<script>
+    class DataBase{
+
+        constructor(dbName){
+            document.write(`DataBase Connected to ${dbName} <br>`);
+        }
+
+        Insert(){
+            document.write("Record Inserted..");
+        }
+        Delete(){
+            document.write('Record Deleted..');
+        }
+        Update(){
+            document.write('Record Updated..');
+        }
+    }
+    
+    function handleInsert(){
+        let obj = new DataBase(document.getElementById("dbname").value);
+        obj.Insert();
+    }
+    function handleDelete(){
+        let obj = new DataBase(document.getElementById("dbname").value);
+        obj.Delete();
+    }
+    function handleUpdate(){
+        let obj = new DataBase(document.getElementById("dbname").value);
+        obj.Update();
+    }
+</script>
+</head>
+<body>
+    <select  id="dbname">
+        <option >Oracle</option>
+        <option >MongoDB</option>
+        <option >Mysql</option>
+    </select>
+    <button onclick="handleInsert()">Insert</button>
+    <button onclick="handleUpdate()">Update</button>
+    <button onclick="handleDelete()">Delete</button>
+</body>
+</html>

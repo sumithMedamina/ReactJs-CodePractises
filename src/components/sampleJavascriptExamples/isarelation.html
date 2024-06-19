@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Has-a-relation</title>
+    <script>
+        class Hdfc_Bank_version1{
+            Personal = "Personal Banking";
+            NRI = "NRI Banking Service";
+
+            print(){
+                document.write(`${this.Personal} <br> ${this.NRI} <br>`)
+            }
+        }
+        class Hdfc_Bank_version2 extends Hdfc_Bank_version1{
+            Loans ="Personal and HousingLoans";
+
+            print(){
+                super.print();
+                document.write(`${this.Loans} </br>`)
+            }
+        }
+
+        function handleInstallation(){
+         switch(document.getElementById("version").value){
+            case "v-1": 
+            var obj1 = new Hdfc_Bank_version1;
+            document.write("<h2> You installed version-1 </h2>");
+            obj1.print();
+            break;
+            case "v-2": 
+            var obj2 = new Hdfc_Bank_version2;
+            document.write("<h2> You installed version-2 </h2>");
+            obj2.print();
+            break;
+            default:
+                document.write("Please select a version to install..");
+                break;
+         }
+        }
+    </script>
+</head>
+<body>
+<h2 style="color: blue;">Hdfc Bank Application</h2> <br>
+<select id="version">
+    <option value="-1">Select Version</option>
+    <option value="v-1">Version-1.0</option>
+    <option value="v-2">Version-2.0</option>
+</select>
+<button onclick="handleInstallation()">Install</button>
+</body>
+</html>
