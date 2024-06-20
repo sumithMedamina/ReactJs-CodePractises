@@ -2,15 +2,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
-
-import {TwoWayDataBinding } from './class-components/Twowaybinding';
+import { FakeStoreClass } from './class-components/mountandunmount';
 
 
 
 function App() {
   return (
     <div className="">
-      <TwoWayDataBinding/>
+      <FakeStoreClass/>
     </div>
   );
 }
