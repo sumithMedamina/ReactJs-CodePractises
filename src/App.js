@@ -3,14 +3,14 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
 
-import { PureDemo } from './class-components/pureDemo';
+import { FormikDemo } from './components/formik-demo/formik-demo';
 
 
 
 function App() {
   return (
     <div className="">
-      <PureDemo/>
+      <FormikDemo/>
     </div>
   );
 }
