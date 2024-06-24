@@ -2,14 +2,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
-import { FakeStoreClass } from './class-components/mountandunmount';
+
+import { PureDemo } from './class-components/pureDemo';
 
 
 
 function App() {
   return (
     <div className="">
-      <FakeStoreClass/>
+      <PureDemo/>
     </div>
   );
 }
