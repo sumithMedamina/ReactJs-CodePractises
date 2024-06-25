@@ -3,7 +3,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
 
-import { TutorialComponent } from './components/tutorial-component/tutotial-component';
+import { ShoppingIndex } from './components/shopping-spa/shoppingindex';
 
 
 
@@ -12,7 +12,7 @@ import { TutorialComponent } from './components/tutorial-component/tutotial-comp
 function App() {
   return (
     <div className="">
-      <TutorialComponent/>
+      <ShoppingIndex/>
     </div>
   );
 }
