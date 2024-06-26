@@ -3,7 +3,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
 
-import { ShoppingIndex } from './components/shopping-spa/shoppingindex';
+import { ShoppingIndex } from './components/route-parameters/shoppingindex';
 
 
 
