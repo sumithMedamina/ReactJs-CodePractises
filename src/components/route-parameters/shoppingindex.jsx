@@ -27,14 +27,14 @@ export function ShoppingIndex(){
                 <div>
                     <span className="me-5"><Link to="home" className="text-white text-decoration-none">Home</Link></span>
                     {
-                            categories.map((category) => 
+                            categories.map((category) =>
                                 <span key={category} className="me-5"><Link className="text-white text-decoration-none">{category.charAt(0).toUpperCase() + category.slice(1)}</Link></span>
                             )
                     }
                 </div>
                 <div>
                     {
-                        biClasses.map((bi,index) => 
+                        biClasses.map((bi,index) =>
                             <span key={index} className={`${bi} me-3`} style={{'marginRight':"5px"}}></span>
                         )
                     }

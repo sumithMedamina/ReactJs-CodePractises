@@ -45,9 +45,6 @@ export function TutorialComponent(){
                             <div>
                                 <h2>Not Found</h2>
                                 <code>Tutorial You Requested Not Found.
-
-
-                                    
                                 </code>
                             </div>
                         }/>
