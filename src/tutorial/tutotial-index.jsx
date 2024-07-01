@@ -3,6 +3,7 @@ import { TutorialHome } from "./tutorial-home";
 import { TutorialRegister } from "./tutorial-register";
 import { TutorialLogin } from "./tutorial-login";
 import { TutorialVideos } from "./tutorial-videos";
+import { TutorialError } from "./tutorial-error";
 
 export function TutorialIndex() {
   return (
@@ -30,9 +31,10 @@ export function TutorialIndex() {
             <Routes>
                 <Route path="/" element={<TutorialHome/>}></Route>
                 <Route path="home" element={<TutorialHome/>}></Route>
-                <Route path="/register" element={<TutorialRegister/>}></Route>
-                <Route path="/login" element={<TutorialLogin/>}></Route>
-                <Route path="/videos" element={<TutorialVideos/>}></Route>
+                <Route path="register" element={<TutorialRegister/>}></Route>
+                <Route path="login" element={<TutorialLogin/>}></Route>
+                <Route path="videos" element={<TutorialVideos/>}></Route>
+                <Route path="error" element={<TutorialError/>}/>
             </Routes>
           </main>
         </section>

@@ -3,7 +3,7 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 import 'bootstrap/dist/js/bootstrap.bundle.js';
 
 
-import { FakestoreIndex } from './fakestore-spa/fakestore-index';
+import { TutorialIndex } from './tutorial/tutotial-index';
 
 
 
@@ -12,7 +12,7 @@ import { FakestoreIndex } from './fakestore-spa/fakestore-index';
 function App() {
   return (
     <div className="">
-      <FakestoreIndex/>
+      <TutorialIndex/>
     </div>
   );
 }
