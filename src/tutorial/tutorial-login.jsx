@@ -1,13 +1,14 @@
 import axios from "axios";
 import { useFormik } from "formik";
-import { useState } from "react";
 import {Link, useNavigate} from "react-router-dom";
+import { useCookies } from "react-cookie";
 
 
 export function TutorialLogin(){
 
-    const [users, setUsers] = useState([]);
     const navigate = useNavigate();
+    const [cookies, setCookie, removeCookie] = useCookies();
+
 
     const formik = useFormik({
         initialValues:{
@@ -18,13 +19,26 @@ export function TutorialLogin(){
                 axios({
                     method:"get",
                     url:"http://localhost:5050/customers"
-                }).then((response) =>{
-                    setUsers(response.data);
-                }).then(()=>{
-                    console.log(users);
-                    for(var user of users){
+                })
+                // .then((response) =>{
+                //     setUsers(response.data);
+                //     console.log(users);
+                //     for(var user of users){
+
+                //         if(user.userId===customer.userId&&user.password===customer.password){
+                //                 navigate("/videos");
+                //                 break;
+                //         }
+                //         else{
+                //             navigate("/error");
+                //         }
+                //     }
+                // })
+                .then((response)=>{
+                    for(var user of response.data){
 
                         if(user.userId===customer.userId&&user.password===customer.password){
+                            setCookie("userId",customer.userId,{expires:new Date('2024-07-15 23:33:42')});
                                 navigate("/videos");
                                 break;
                         }
