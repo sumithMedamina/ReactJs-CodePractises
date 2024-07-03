@@ -20,7 +20,7 @@ export function TutorialVideoDetails(){
     useEffect(()=>{
         axios({
             method:"get",
-            url:`http://localhost:5050/video/${params.id}`
+            url:`http://127.0.0.1:5050/video/${params.id}`
         })
         .then(response =>{
             setVideo(response.data);
@@ -38,7 +38,7 @@ export function TutorialVideoDetails(){
                 <h4>{video[0].title}</h4>
               </div>
               <div className="card-body">
-                <iframe src={video[0].url} height="300" width="100%" frameborder="0"></iframe>
+                <iframe src={video[0].url} height="300" width="100%" title={video[0].title}></iframe>
               </div>
               <div className="card-footer">
                 <p className="bi bi-eye">[{video[0].views}] views <span className="bi-hand-thumbs-up">{video[0].likes}</span> likes </p>

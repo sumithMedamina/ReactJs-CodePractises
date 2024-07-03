@@ -4,7 +4,7 @@ const { subscribe } = require("diagnostics_channel");
 var mongoClient =require("mongodb").MongoClient;
 
 
-var dbConnectionUrl = "mongodb+srv://msk274651:T6cEFMPNu7Tc4BjK@mangoclient.oqejmkn.mongodb.net/";
+var dbConnectionUrl = "mongodb://127.0.0.1:27017";
 
 var app = express();
 
@@ -20,7 +20,6 @@ app.get("/videos", (req, res)=>{
        var database = databaseObj.db("tutorial");
        database.collection("videolibrary").find({}).toArray().then((documents)=>{
         res.send(documents);
-        res.end();
        })
     })
     .catch(err =>{
@@ -36,7 +35,6 @@ app.get("/video/:id" ,(req, res)=>{
         var database = databaseObj.db("tutorial");
         database.collection("videolibrary").find({id:video_id}).toArray().then((document)=>{
             res.send(document);
-            res.end();
         })
     }).catch(err =>{
         console.log(err);
@@ -51,7 +49,7 @@ app.post("/addvideo",(req, res)=>{
         url: req.body.url,
         views :parseInt( req.body.views),
         likes :parseInt( req.body.likes),
-        subscribed : (req.body.subscribed==="true")?true:false
+        subscribed : req.body.subscribed
     }
 
     mongoClient.connect(dbConnectionUrl)
@@ -59,8 +57,7 @@ app.post("/addvideo",(req, res)=>{
         var database =databaseObj.db("tutorial");
         database.collection("videolibrary").insertOne(newRecord).then(result =>{
             console.log("New Record Inserted");
-            res.redirect("/videos");
-            res.end();
+           
         })
     })
     .catch(err => {
@@ -71,23 +68,21 @@ app.post("/addvideo",(req, res)=>{
 //update existing video details with id
 app.put("/updatevideo/:id", (req, res)=>{
         var updatedDetailsOfVideo = {
-            id : parseInt(req.body.id),
             title : req.body.title,
             url: req.body.url,
             views :parseInt( req.body.views),
             likes :parseInt( req.body.likes),
-            subscribed : (req.body.subscribed==="true")?true:false
+            subscribed : req.body.subscribed
         }
 
-        var video_id = parseInt(req.param.id);
+        var video_id = parseInt(req.params.id);
 
         mongoClient.connect(dbConnectionUrl)
         .then((databaseObj) => {
             var database = databaseObj.db("tutorial");
-            database.collection("videolibrary").findOneAndUpdate({id:video_id},{$set:{updatedDetailsOfVideo}}).then(result =>{
-                console.log(result);
-                console.log("Result Updated");
-                res.end();
+            database.collection("videolibrary").updateOne({id:video_id},{$set:updatedDetailsOfVideo}).then(result =>{
+                console.log("Video Updated");
+                
             })
         })
         .catch(err =>{
@@ -97,15 +92,13 @@ app.put("/updatevideo/:id", (req, res)=>{
 
 //Delete video Details by id
 app.delete("/deletevideo/:id", (req,res) =>{
-            var video_id = parseInt(req.param.id);
+            var video_id = parseInt(req.params.id);
 
             mongoClient.connect(dbConnectionUrl)
             .then(databaseObj =>{
                 var database = databaseObj.db("tutorial");
-                database.collection("videolibrary").find({id:video_id}).deleteOne().then(result =>{
+                database.collection("videolibrary").deleteOne({id:video_id}).then(result =>{
                     console.log("Record Deleted");
-                    console.log(result);
-                    res.end();
                 })
             })
             .catch((err) => {
@@ -115,4 +108,4 @@ app.delete("/deletevideo/:id", (req,res) =>{
 })
 
 app.listen(5050);
-console.log("server started in port number 5050");
+console.log("server started: http://127.0.0.1:5050");

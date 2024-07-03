@@ -6,6 +6,9 @@ import { TutorialVideos } from "./tutorial-videos";
 import { TutorialError } from "./tutorial-error";
 import { TutorialVideoManagement } from "./tutorial-mangevideos";
 import { TutorialVideoDetails } from "./tutorial-videodetails";
+import { AddVideo } from "./tutorial-videoadd";
+import { EditVideoDetails } from "./tutorial-editvideodetails";
+import { DeleteVideo } from "./tutorial-deletevideo";
 
 export function TutorialIndex() {
   return (
@@ -40,8 +43,11 @@ export function TutorialIndex() {
                 <Route path="login" element={<TutorialLogin/>}></Route>
                 <Route path="videos" element={<TutorialVideos/>}></Route>
                 <Route path="error" element={<TutorialError/>}/>
-                <Route path="managevideos" element={<TutorialVideoManagement/>}/>
+                <Route path="/managevideos" element={<TutorialVideoManagement/>}/>
                 <Route path="videodetails/:id" element={<TutorialVideoDetails/>}/>
+                <Route path="addVideo" element={<AddVideo/>}/>
+                <Route path="editvideodetails/:id" element={<EditVideoDetails/>}/>
+                <Route path="deletevideo/:id" element={<DeleteVideo/>}></Route>
             </Routes>
           </main>
         </section>
