@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script type="module">
+        import {UseQueue} from "./src/custom-hooks/queue.js"
+         let queue = new UseQueue();
+               queue.enqueue("A");
+               queue.enqueue("B");
+               console.log(queue.size());
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
